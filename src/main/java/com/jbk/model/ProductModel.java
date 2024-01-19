@@ -1,42 +1,21 @@
-package com.jbk.entity;
+package com.jbk.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+public class ProductModel {
 
-@Entity
-@Table(name = "product")
-public class ProductEntity {
-
-	@Id
-	@Column(name = "product_id")
 	private long productId;
-	
-	@Column(name = "product_name",nullable = false,unique = true)
 	private String productName;
 	
-	@OneToOne
-	private SupplierEntity supplier;
-	
-	@OneToOne
-	private CategoryEntity category;
-	
-	@Column(name = "product_qty",nullable = false)
+	private SupplierModel supplier;
+	private CategoryModel category;
 	private int productQty;
-	
-	@Column(name = "product_price",nullable = false)
 	private double productPrice;
-	
-	@Column(name = "delivery_charges",nullable = false)
 	private int deliveryCharge;
 	
-	public ProductEntity() {
+	public ProductModel() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProductEntity(long productId, String productName, SupplierEntity supplier, CategoryEntity category,
+	public ProductModel(long productId, String productName, SupplierModel supplier, CategoryModel category,
 			int productQty, double productPrice, int deliveryCharge) {
 		super();
 		this.productId = productId;
@@ -64,19 +43,19 @@ public class ProductEntity {
 		this.productName = productName;
 	}
 
-	public SupplierEntity getSupplier() {
+	public SupplierModel getSupplier() {
 		return supplier;
 	}
 
-	public void setSupplier(SupplierEntity supplier) {
+	public void setSupplier(SupplierModel supplier) {
 		this.supplier = supplier;
 	}
 
-	public CategoryEntity getCategory() {
+	public CategoryModel getCategory() {
 		return category;
 	}
 
-	public void setCategory(CategoryEntity category) {
+	public void setCategory(CategoryModel category) {
 		this.category = category;
 	}
 

@@ -1,37 +1,20 @@
-package com.jbk.entity;
+package com.jbk.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+public class CategoryModel {
 
-@Entity
-@Table(name = "category")
-public class CategoryEntity {
-	
-	@Id
-	@Column(name = "category_id")
 	private long categoryId;
-	
-	@Column(name = "category_name",unique = true,nullable = false)
 	private String categoryName;
-	
-	@Column(name = "description",unique = true)
 	private String description;
-	
-	@Column(name = "discount",nullable = false)
 	private int discount;
-	
-	@Column(name = "gst",nullable = false)
 	private int gst;
 	
 	
-	public CategoryEntity() {
+	public CategoryModel() {
 		// TODO Auto-generated constructor stub
 	}
 
 
-	public CategoryEntity(long categoryId, String categoryName, String description, int discount, int gst) {
+	public CategoryModel(long categoryId, String categoryName, String description, int discount, int gst) {
 		super();
 		this.categoryId = categoryId;
 		this.categoryName = categoryName;

@@ -1,38 +1,40 @@
-package com.jbk.entity;
+package com.jbk.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
-@Entity
-@Table(name = "supplier")
-public class SupplierEntity {
+public class SupplierModel {
 
-	@Id
-	@Column(name = "supplier_id")
+	@Min(1)
 	private long supplierId;
 	
-	@Column(name = "supplier_name",nullable = false,unique = true)
+	@NotBlank(message = "Invalid Supplier Name")
+	@Pattern(regexp = "^[a-zA-Z ]{3,50}$", message = "Supplier name should consist of letters, and space, and be between 3 and 50 characters long.")
 	private String supplierName;
 	
-	@Column(name = "city",nullable = false)
+	@NotBlank(message = "Invalid City Name")
+	@Pattern(regexp = "^[a-zA-Z ]{4,50}$", message = "Supplier city should consist of letters, and space, and be between 4 and 50 characters long.")
 	private String city;
 	
-	@Column(name = "postal_code",nullable = false)
-	private int postalCode;
+	@Min(100000)  
+	@Max(999999)
+	private int postalCode;  
 	
-	@Column(name = "country",nullable = false)
+	@NotBlank(message = "Invalid Supplier Country")
+	@Pattern(regexp = "^[a-zA-Z ]{4,50}$", message = "Supplier country should be consist of letters, and space, and be between 3 and 50 characters long.")
 	private String country;
 	
-	@Column(name = "mobile_no",nullable = false,unique = true)
+	@NotBlank(message = "Invalid Supplier Mobile No")
+	@Pattern(regexp = "^[1-9][0-9]{9}$", message = "Supplier moble should be only 10 numeric digit")
 	private String mobileNo;
 	
-	public SupplierEntity() {
+	public SupplierModel() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public SupplierEntity(long supplierId, String supplierName, String city, int postalCode, String country,
+	public SupplierModel(long supplierId, String supplierName, String city, int postalCode, String country,
 			String mobileNo) {
 		super();
 		this.supplierId = supplierId;
