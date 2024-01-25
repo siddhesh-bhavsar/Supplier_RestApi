@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EMartRestApiApplication {
+public class Supplier_RestAPI {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EMartRestApiApplication.class, args);
+		SpringApplication.run(Supplier_RestAPI.class, args);
 	}
 
 }
